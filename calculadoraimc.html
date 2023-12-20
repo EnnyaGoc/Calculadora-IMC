@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMC</title>
+    <script type="text/javascript">
+        function Calcula(){
+            let nome = document.getElementById("nome").value;
+            let altura = parseFloat(document.getElementById("altura").value);
+            let peso = parseFloat(document.getElementById("peso").value);
+            let classificacao;
+
+            if(nome == '' || altura == ''|| peso == ''){
+                window.alert("Preencha todos os campos!");
+                return;
+            }
+            else{
+             let divisor = Math.pow(altura, 2);
+             let resultado = peso/divisor;
+
+             if(resultado < 18.5){
+                classificacao = "abaixo do peso"
+             }
+             else{
+                if(resultado > 24.9){
+                    classificacao = "acima do peso"
+                }
+                else
+                classificacao = "com peso ideal"
+             }
+
+
+            document.getElementById("area").value = nome + " seu IMC é " + resultado.toFixed(2) + " e você está " + classificacao;   
+            }
+  
+        }
+
+    </script>
+
+    <style type="text/css">
+        #calculadora{
+            background-color: rgb(129, 158, 212);
+            width: 35%;
+            height: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 10px;
+            font-family: Arial, Helvetica, sans-serif;
+            color: white;
+            font-size: 30px;
+            display: grid;
+            
+        }
+        input, textarea{
+            border: none;
+            margin: auto;
+            border-radius: 7px;
+            background-color: rgb(194, 213, 247);
+            color: rgb(35, 68, 129);
+            font-size: 20px;
+        }
+        .itens{
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 20px;
+            width: 70%;
+            height: 10%;
+            
+        }
+        #titulo{
+            font-size: 50px;
+            margin-top: 20px;
+            color: rgb(35, 68, 129);
+            font-weight: bold;
+        }
+        input{
+            width: 70%;
+            height: 50px;
+            margin-left: 30px;
+            
+        }
+        button{
+            width: 20%;
+            height: 50px;
+            border-radius: 7px;
+            font-size: 15px;
+            font-weight: bold;
+            background-color: rgb(35, 68, 129);
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            
+        }
+        button:active{
+            background-color: rgb(22, 41, 75);
+        }
+        textarea{
+          margin-left: 40px;
+          width: 60%;
+          height: 150px;
+            
+        }
+
+    </style>
+</head>
+<body>
+    <div id="calculadora">
+        <div class="itens" id="titulo">Calculadora - IMC</div>
+        <div class="itens">
+            <label for="">Nome:</label>
+            <input type="text" id="nome">
+        </div class="itens">
+
+        <div class="itens">
+            <label for="">Altura:</label>
+            <input type="number" id="altura">
+        </div>
+
+        <div class="itens">
+            <label for="">Peso:</label>
+            <input type="number" id="peso">
+        </div>
+        
+        <div class="itens">
+            <button type="button" onclick="Calcula()">Calcular</button>
+            <textarea name="" id="area" cols="30" rows="10"></textarea>
+        </div>
+        
+        
+      
+    </div>
+</body>
+</html>
